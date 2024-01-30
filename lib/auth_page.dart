@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tz1/home_page.dart';
@@ -23,6 +24,7 @@ class _AuthPageState extends State<AuthPage> {
       UserCredential userCredential = await _auth.signInAnonymously();
       print("Signed in with temporary account: ${userCredential.user!.uid}");
       Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(builder: (context) => const HomePage()),
       );
